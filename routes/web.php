@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::post('/welcome/submit', 'LoginFunctionController@submit');
+
+Route::post('/register/submit', 'RegisterFunctionController@submit');
