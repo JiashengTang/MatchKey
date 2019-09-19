@@ -11,7 +11,7 @@ class RegisterFunctionController extends Controller
 {
     public function submit(Request $request){
         $this->validate($request,[
-            'username'=>'required',
+            'username'=>'required|unique',
             'password'=>'required',
             'confirmpassword'=>'required',
             'email'=>'required'
