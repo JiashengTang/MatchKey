@@ -21,9 +21,9 @@
             </div>
         </div>
     </div>
-
+    </body>
     <footer id="footer" class="text-center">
+        <p class="float-right"><a href="#">Back to top</a></p>
         <p>CopyRignt 2019 &copy;Match Key</p>
     </footer>
-    </body>
 </html>

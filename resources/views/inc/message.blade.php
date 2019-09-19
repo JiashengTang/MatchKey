@@ -11,3 +11,9 @@
         {{session('success')}}
     </div>
  @endif
+
+ @if(session('wrong'))
+ <div class='alert-danger'>
+        {{session('wrong')}}
+    </div>
+ @endif

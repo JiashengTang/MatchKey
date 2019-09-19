@@ -2,8 +2,10 @@
 @extends('layouts.app')
 
 @section('content')
-	<div  style="margin-left: 50px;margin-top: 50px;">
+	<div  style="margin-left: 50px;margin-top: 50px; height=100%;">
 		<h1>Match Key</h1>
+		<br>
+		<br>
 		{!! Form::open(['url'=> 'register/submit'])!!}
 		<div class="form-group" style="width: 400px;">
 			{{Form::label('username','Username')}}
@@ -21,6 +23,7 @@
 			{{Form::label('email','E-mail')}}
 			{{Form::text('email','',['class'=> 'form-control','placeholder'=>'example@example.com'])}}
 		</div>
+		<br>
 		<div>
 			{{Form::submit('Submit',['class'=>'btn btn-primary'])}}
 		</div>
