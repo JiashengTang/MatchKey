@@ -10,7 +10,7 @@ use App\Mail\SendMailable;
 class RegisterFunctionController extends Controller
 {
     public function submit(Request $request){
-        $this->validate($request,[
+            $validator  = $request->validate([
             'username'=>'required|unique',
             'password'=>'required',
             'confirmpassword'=>'required',
