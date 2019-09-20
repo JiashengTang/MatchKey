@@ -8,132 +8,74 @@
     <h2>Matching Check-in</h2>
     <p class="lead">Please complete the following things to finish the check-in function</p>
   </div>
-
+  {!! Form::open(['url'=> 'recruiterpost/submit'])!!}
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Company Details</h4>
       <form class="needs-validation" novalidate>
         <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid first name is required.
+            <div class="col-md-12 mb-3">
+            {{Form::label('companyname','Company Name')}}
+			      {{Form::text('companyname','',['class'=> 'form-control','placeholder'=>''])}}  
             </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="lastName">Last name </label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid last name is required.
-            </div>
-          </div>
+        </div>
+
+        <div class="mb-3">
+        {{Form::label('email','Contact Email')}}
+			  {{Form::email('email','',['class'=> 'form-control','placeholder'=>'example@example.com'])}}
+        </div>
+
+        <div class="mb-3">
+        {{Form::label('address','Company Address')}}
+			  {{Form::text('address','',['class'=> 'form-control','placeholder'=>'1234 Main St'])}}
+        </div>
+
+        <div class="mb-3">
+        {{Form::label('address','Company Address 2')}} <span class="text-muted">(Optional)</span>
+			  {{Form::text('address2','',['class'=> 'form-control','placeholder'=>'Apartment or suite'])}}
         </div>
         <div class="row">
-            <div class="col-md-8 mb-3">
-                <label for="CompanyName">Company Name </label>
-                <input type="text" class="form-control" id="CompanyName" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                Valid Company name is required.
-                </div>
-            </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="email">Contact Email </label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
-          <div class="invalid-feedback">
-            Please enter a valid email address for shipping updates.
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-          <div class="invalid-feedback">
-            Please enter your shipping address.
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-          <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-        </div>
-
-        <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="jobtype">Job Type required</label>
-            <select class="custom-select d-block w-100" id="jobtype" required>
-              <option value="">Choose...</option>
-              <option>IT</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid Job Type.
-            </div>
+          {{Form::label('jobtype','Job Type required')}}
+          {{Form::select('jobtype', array('IT' => 'IT', 'Business' => 'Business'), 'IT',['class'=>'custom-select d-block w-100'])}}
           </div>
         </div>
 
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="city">City required</label>
-                <select class="custom-select d-block w-100" id="city" required>
-                <option value="">Choose...</option>
-                <option>California</option>
-                </select>
-                <div class="invalid-feedback">
-                Please provide a valid City.
-                </div>
+            {{Form::label('jocitybtype','City required')}}
+            {{Form::select('city', array('Melbourne' => 'Melbourne', 'Sydney' => 'Sydney'), 'Melbourne',['class'=>'custom-select d-block w-100'])}}
             </div>
         </div>
         
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="education">Education</label>
-            <select class="custom-select d-block w-100" id="Education" required>
-              <option value="">Choose...</option>
-              <option>Collage</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid Education.
-            </div>
+          {{Form::label('education','Education')}}
+          {{Form::select('education', array('Collage' => 'Collage', 'Highschool' => 'High school','None'=>'None'), 'Collage',['class'=>'custom-select d-block w-100'])}}
           </div>
         </div>
 
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="experience">Working experience required</label>
-                <select class="custom-select d-block w-100" id="experience" required>
-                <option value="">Choose...</option>
-                <option>0 years</option>
-                <option>1-2 years</option>
-                <option>2-5 years</option>
-                <option>5-10 years</option>
-                <option>10+ years</option>
-                </select>
-                <div class="invalid-feedback">
-                Please provide a valid experience.
-                </div>
+            {{Form::label('experience','Working experience required')}}
+            {{Form::select('experience', array('0' => '0 years', '1' => '1-2 years','2' => '2-5 years','5' =>'5+ years'), '0',['class'=>'custom-select d-block w-100'])}}
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="Salary">Salary</label>
-                <input type="text" class="form-control" id="CompanyName" placeholder="" value="" required><span class="text-muted">/month</span>
-                <div class="invalid-feedback">
-                Please provide a valid state.
-                </div>
+            {{Form::label('salaryrange','Salary')}}<span class="text-muted">/month</span>
+			      {{Form::text('salaryrange','',['class'=> 'form-control','placeholder'=>'/month'])}}
             </div>
         </div>
 
-
-
         <hr class="mb-4">
         <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="same-address">
+          <input type="checkbox" class="custom-control-input" id="same-address" required>
           <label class="custom-control-label" for="same-address">I confirm that company details and check-in details are vaild</label>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to Check-in</button>
+        {{Form::submit('Continue to Search',['class'=>'btn btn-primary'])}}
       </form>
+      {!!Form::close()!!}
     </div>
 @endsection

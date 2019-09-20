@@ -59,4 +59,7 @@ Route::get('/view', 'LoginFunctionController@submit');
 
 Route::get('/show-all-user', 'AdminFunctionController@getuserinfo');
 
+Route::post('/recruiterpost/submit', 'RecruiterpostFunctionController@submit');
+
+Route::post('/seekersearch/submit', 'seekersearchFunctionController@submit');
 //Route::redirect('/welcome/submit', '/view');

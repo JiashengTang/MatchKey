@@ -15,19 +15,19 @@ class LoginFunctionController extends Controller
         ]);
         $username=$request->input('username');
         $password=$request->input('password');
-        $userinfos =Userinfos::where('username', $username)->first();
+        $userinfos =DB::select("select password from userinfos where username='$username'");
         //$userinfos=array_flatten($userinfos);
         //$data = array_get($userinfos, 'password.');
         //$data = $userinfos["0"];
-        // $data = serialize($userinfos);
-        // if(strlen($password)<10)
-        // {
-        //     $data=Str::substr($data, 47,-4);
-        // }
-        // else
-        // {
-        //     $data=Str::substr($data, 48,-4);
-        // }
+        $data = serialize($userinfos);
+        if(strlen($password)<10)
+        {
+            $data=Str::substr($data, 47,-4);
+        }
+        else
+        {
+            $data=Str::substr($data, 48,-4);
+        }
         //$array = ['names' => ['joe' => ['programmer']]];
         //array_forget($array, 'names.joe');
         if($username=="admin" && $password=="admin")
@@ -37,7 +37,7 @@ class LoginFunctionController extends Controller
         }
         else
         {
-            if($userinfos->password==$password)
+            if($data==$password)
             {
                 $request->session()->put('userData', $username);
                 $output=$request->session()->get('userData');
@@ -45,7 +45,8 @@ class LoginFunctionController extends Controller
             }
             else{
                 //$data="1";
-                //return view('view')->with('messages',$data);
+                // return $data;
+                // return view('view')->with('messages',$data);
                 return redirect('/')->with('wrong','Wrong account or password');
             }
         }
