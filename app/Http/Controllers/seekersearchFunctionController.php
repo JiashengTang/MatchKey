@@ -23,7 +23,7 @@ class seekersearchFunctionController extends Controller
         $experience=$request->input('experience');
         $salaryrange=$request->input('salaryrange');
         $resultJobTypeMatch =DB::select("SELECT * FROM jobseekers where jobtype = '$jobtype'");
-        $data = serialize($resultJobTypeMatch);
+        //$data = serialize($resultJobTypeMatch);
 
         $IDList = array_column($resultJobTypeMatch, 'id');
         $CompanyNameList=array_column($resultJobTypeMatch, 'companyname');
@@ -35,6 +35,10 @@ class seekersearchFunctionController extends Controller
         $CityList = array_column($resultJobTypeMatch, 'city');
 
         $arrayCount = count($resultJobTypeMatch);
+
+        $searchresultcount=$arrayCount-1;//session result count
+        $request->session()->push('searchresultcount', $searchresultcount);
+
         $MatchCount = 0;
         $TotalMatch = 0;
 
@@ -54,17 +58,19 @@ class seekersearchFunctionController extends Controller
                 $MatchCount++;
               }
               if ($MatchCount>=3){
-                echo "Company ID ",$IDList[$i]," match your requirement.<br>";
-                echo "This Company require ",$SalaryList[$i]," /month income, <br>
-                The Company name is ", $CompanyNameList[$i], " <br>
-                And contact email is  ", $EmailList[$i], " <br>
-                And Company address is ", $AddressList[$i], " .<br><br>";
+                //save data into session
+                $searchresult=collect([$IDList[$i],$CompanyNameList[$i],$EmailList[$i],$AddressList[$i],$SalaryList[$i],$EducationList[$i],$ExperienceList[$i],$CityList[$i]]);
+                $request->session()->push('searchresult'.$i, $searchresult);
                 $TotalMatch++;
               }
             }
           }
           if ($TotalMatch==0){
-            echo "Sorry there are no person match your requirment.";
+            return redirect('/searchresult')->with('wrong','Sorry there is no one match your requirment.');
+          }
+          else
+          {
+            return redirect('/searchresult')->with('success','Matching successful');
           }
 
         //return $IDList;
