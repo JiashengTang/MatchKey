@@ -45,6 +45,16 @@ Route::get('/seekersearch',function(){
 Route::get('/recruiterpost',function(){
     return view('recruiterpost');
 });
+Route::get('/searchresult',function(){
+    return view('searchresult');
+});
+Route::get('/forgotpw',function(){
+    return view('forgotpw');
+});
+Route::get('/enterverificationcode',function(){
+    return view('enterverificationcode');
+});
+
 
 Route::get('logout', 'LoginFunctionController@logout')
       ->name('logout');
@@ -55,9 +65,15 @@ Route::post('/register/submit', 'RegisterFunctionController@submit');
 
 Route::post('/add-user/submit', 'AdduserFunctionController@submit');
 
+Route::post('/forgetpw/submit', 'ForgotPasswordFunctionController@submit');
+
+Route::post('/enterverificationcode/submit', 'EnterverificationcodePasswordFunctionController@submit');
+
 Route::get('/view', 'LoginFunctionController@submit');
 
 Route::get('/show-all-user', 'AdminFunctionController@getuserinfo');
+
+//Route::post('/search-user/submit', 'SearchFunctionController@submit');
 
 Route::post('/recruiterpost/submit', 'RecruiterpostFunctionController@submit');
 
