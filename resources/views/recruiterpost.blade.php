@@ -74,7 +74,7 @@
           <label class="custom-control-label" for="same-address">I confirm that company details and check-in details are vaild</label>
         </div>
         <hr class="mb-4">
-        {{Form::submit('Finish Chenk-in',['class'=>'btn btn-primary'])}}
+        {{Form::submit('Continue to Search',['class'=>'btn btn-primary'])}}
       </form>
       {!!Form::close()!!}
     </div>

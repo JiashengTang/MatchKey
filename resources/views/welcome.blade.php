@@ -11,8 +11,9 @@
 		</div>
 		<div class="form-group" style="width: 400px;">
 			{{Form::label('password','Password')}}
-			{{Form::text('password','',['class'=> 'form-control','placeholder'=>'Enter Password','type'=>'password'])}}
+			{{Form::text('password','',['class'=> 'form-control','placeholder'=>'Enter Password'])}}
 		</div>
+		<a class="nav-link" href="/forgotpw">Forget Password?</a>
 		<div>
 			{{Form::submit('Submit',['class'=>'btn btn-primary'])}}
 		</div>

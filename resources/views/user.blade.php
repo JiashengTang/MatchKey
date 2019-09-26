@@ -13,16 +13,19 @@
   <div class="container">
     <!-- Example row of columns -->
     <div class="row">
+    @if(Session::get('jorr')=="j")
       <div class="col-md-6">
         <h2>I'm a job-seeker</h2>
         <p>Job-seeker can use matching system to match job by their selection</p>
         <p><a class="btn btn-primary" href="/seekersearch" role="button">Go to Search page &raquo;</a></p>
       </div>
+    @elseif(Session::get('jorr')=="r")
       <div class="col-md-6">
         <h2>I'm a recruiter</h2>
         <p>Recruiter can upload requirements for the role they want</p>
-        <p><a class="btn btn-primary" href="/recruiterpost" role="button">Go to Post page &raquo;</a></p>
+        <p><a class="btn btn-primary" href="/recruiterpost" role="button">Go to Check-in page &raquo;</a></p>
       </div>
+    @endif
     </div>
 
     <hr>
