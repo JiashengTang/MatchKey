@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Http\Request;
 
 class SendMailable extends Mailable
 {
@@ -27,8 +28,19 @@ class SendMailable extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(Request $request)
     {
-        return $this->from('s3557899@student.rmit.edu.au')->subject('Laravel First Mail')->view('dynamic')->with('data',$this->data);
+        if($request->session()->get('rorf')=='r')
+        {
+        return $this->from('s3557899@student.rmit.edu.au')->subject('Match Key Mail')->view('dynamic')->with('data',$this->data);
+        }
+        if($request->session()->get('rorf')=='f')
+        {
+        return $this->from('s3557899@student.rmit.edu.au')->subject('Match Key Mail')->view('mailforgotpw')->with('data',$this->data);
+        }
+        if($request->session()->get('rorf')=='p')
+        {
+        return $this->from('s3557899@student.rmit.edu.au')->subject('Match Key Mail')->view('sendpw')->with('data',$this->data);
+        }
     }
 }
