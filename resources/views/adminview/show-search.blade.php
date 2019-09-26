@@ -58,16 +58,21 @@
       <h2>User List</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
+        {!! Form::open(['url'=> 'show-search/submit'])!!}
+        <form class="needs-validation" novalidate>
           <div class="form-group" style="width: 400px;">
             {{Form::label('username','Username')}}
-            {{Form::text('username','',['class'=> 'form-control','placeholder'=>'Enter name to search'])}}
+            {{Form::text('username','',['class'=> 'form-control','placeholder'=>'Enter name to search123123'])}}
           </div>
           <div>
             {{Form::submit('Search',['class'=>'btn btn-primary'])}}
           </div>
+          </form>
+          {!!Form::close()!!}
         </table>
       </div>
     </main>
   </div>
 </div>
+
 @endsection

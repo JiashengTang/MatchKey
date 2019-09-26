@@ -58,13 +58,15 @@
       <h2>User List</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
+        {!! Form::open(['url'=> 'search-user/submit'])!!}
           <div class="form-group" style="width: 400px;">
             {{Form::label('username','Username')}}
-            {{Form::text('username','',['class'=> 'form-control','placeholder'=>'Enter name to search'])}}
+            {{Form::text('username','',['class'=> 'form-control','placeholder'=>'Enter name to search123123'])}}
           </div>
           <div>
             {{Form::submit('Search',['class'=>'btn btn-primary'])}}
           </div>
+          {!!Form::close()!!}
           <br><br>
           <thead>
             <tr>
