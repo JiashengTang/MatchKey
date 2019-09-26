@@ -18,6 +18,11 @@ class CreateUserinfosTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('email');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('address');
+            $table->string('age');
+            $table->string('jorr');
             $table->timestamps();
         });
     }
