@@ -2,7 +2,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{Session::flush()}}
 	<div  style="margin-left: 50px;margin-top: 50px;">
 		<h1>Match Key</h1>
 		{!! Form::open(['url'=> 'welcome/submit'])!!}
