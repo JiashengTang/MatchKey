@@ -65,13 +65,9 @@ class seekersearchFunctionController extends Controller
               }
             }
           }
-          if ($TotalMatch==0){
-            return redirect('/searchresult')->with('wrong','Sorry there is no one match your requirment.');
-          }
-          else
-          {
-            return redirect('/searchresult')->with('success','Matching successful');
-          }
+          $request->session()->push('totalmatch', $TotalMatch);
+          return redirect('/user')->with('success','Information saved successful');
+          
 
         //return $IDList;
     }
