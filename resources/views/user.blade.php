@@ -15,9 +15,9 @@
     <div class="row">
     @if(Session::get('jorr')=="j")
       <div class="col-md-6">
-        <h2>I'm a job-seeker</h2>
-        <p>Job-seeker can use matching system to match job by their selection</p>
-        <p><a class="btn btn-primary" href="/seekersearch" role="button">Go to Search page &raquo;</a></p>
+        <h2>Personal information</h2>
+        <p>Job-seeker can use matching system to match job by their selection<br>Please fill in the Personal information first, so that we can help you to match the precise information</p>
+        <p><a class="btn btn-primary" href="/seekersearch" role="button">Go to Personal information page &raquo;</a></p>
       </div>
     @elseif(Session::get('jorr')=="r")
       <div class="col-md-6">
@@ -26,6 +26,11 @@
         <p><a class="btn btn-primary" href="/recruiterpost" role="button">Go to Check-in page &raquo;</a></p>
       </div>
     @endif
+    <div class="col-md-6">
+        <h2>See the match result</h2>
+        <p>After you complete the personal information<br>You can see the result here</p>
+        <p><a class="btn btn-primary" href="/searchresult" role="button">Go to result page &raquo;</a></p>
+    </div>
     </div>
 
     <hr>

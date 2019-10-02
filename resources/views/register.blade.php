@@ -13,11 +13,11 @@
 		</div>
 		<div class="form-group" style="width: 400px;">
 			{{Form::label('password','Password')}}
-			{{Form::text('password','',['class'=> 'form-control','placeholder'=>'Enter Password'])}}
+			{{Form::password('password',['class'=> 'form-control','placeholder'=>'Enter Password'])}}
 		</div>
 		<div class="form-group" style="width: 400px;">
 			{{Form::label('confirmpassword','ConfirmPassword')}}
-			{{Form::text('confirmpassword','',['class'=> 'form-control','placeholder'=>'Enter ConfirmPassword'])}}
+			{{Form::password('confirmpassword',['class'=> 'form-control','placeholder'=>'Enter confirmpassword'])}}
 		</div>
 		<div class="form-group" style="width: 400px;">
 			{{Form::label('email','E-mail')}}
