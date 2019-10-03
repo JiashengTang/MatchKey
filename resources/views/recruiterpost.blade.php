@@ -64,7 +64,7 @@
         <div class="row">
             <div class="col-md-6 mb-3">
             {{Form::label('salaryrange','Salary')}}<span class="text-muted">/month</span>
-			      {{Form::text('salaryrange','',['class'=> 'form-control','placeholder'=>'/month'])}}
+			      {{Form::number('salaryrange','',['class'=> 'form-control','placeholder'=>'/month','min'=>'0'])}}
             </div>
         </div>
 
