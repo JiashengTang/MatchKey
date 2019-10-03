@@ -41,6 +41,9 @@
           <p>If you want to change your personal information</p>
           <p>Please click back button</p>
           <p><a class="btn btn-primary" href="/user" role="button">Back &raquo;</a></p>
+    @elseif($a==0)
+        <h4>There is no matching result</h4>
+        <h4>Please click <a href="/user">here</a> to go back to change the personal information.</h4>
     @else
         <h4>Please fill in the personal information first !</h4>
         <h4>More details given to system, more precise result will be given !</h4>
