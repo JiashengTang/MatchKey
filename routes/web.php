@@ -54,6 +54,18 @@ Route::get('/forgotpw',function(){
 Route::get('/enterverificationcode',function(){
     return view('enterverificationcode');
 });
+Route::get('/sendmessage',function(){
+    return view('sendmessage');
+});
+Route::get('/message',function(){
+    return view('message');
+});
+Route::get('/inbox',function(){
+    return view('inbox');
+});
+Route::get('/sent',function(){
+    return view('sent');
+});
 
 
 Route::get('logout', 'LoginFunctionController@logout')
@@ -73,9 +85,18 @@ Route::get('/view', 'LoginFunctionController@submit');
 
 Route::get('/show-all-user', 'AdminFunctionController@getuserinfo');
 
+Route::get('/inbox', 'MessageFunctionController@inbox');
+
+Route::get('/sent', 'MessageFunctionController@sent');
+
+Route::get('/recruitmentinformation', 'RecruiterpostFunctionController@recruitmentinformation');
 //Route::post('/search-user/submit', 'SearchFunctionController@submit');
 
 Route::post('/recruiterpost/submit', 'RecruiterpostFunctionController@submit');
 
 Route::post('/seekersearch/submit', 'seekersearchFunctionController@submit');
+
+Route::post('/searchresult/submit', 'searchresultFunctionController@submit');
+
+Route::post('/sendmessage/submit', 'sendmessageFunctionController@submit');
 //Route::redirect('/welcome/submit', '/view');
