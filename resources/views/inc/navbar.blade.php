@@ -23,8 +23,10 @@
       <li class="nav-item">
         <a class="nav-link" href="/register">Register</a>
       </li>
-    @if(Session::get('jorr')=="j")
-      <li class="nav-item">
+    @if(Session::get('jorr')=="r")
+
+    @else
+    <li class="nav-item">
         <a class="nav-link" href="/searchresult">Result</a>
       </li>
     @endif
