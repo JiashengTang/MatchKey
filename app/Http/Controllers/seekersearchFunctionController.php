@@ -58,7 +58,7 @@ class seekersearchFunctionController extends Controller
               if ($city==$CityList[$i]){
                 $MatchCount++;
               }
-              if ($MatchCount>=3){
+              if ($MatchCount>=2){
                 //save data into session
                 $searchresult=collect([$IDList[$i],$USERIDList[$i],$CompanyNameList[$i],$EmailList[$i],$AddressList[$i],$SalaryList[$i],$EducationList[$i],$ExperienceList[$i],$CityList[$i]]);
                 $request->session()->push('searchresult'.$i, $searchresult);
