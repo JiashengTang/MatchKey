@@ -58,7 +58,7 @@ Route::get('/sendmessage',function(){
     return view('sendmessage');
 });
 Route::get('/message',function(){
-    return view('message');
+    return view('Message');
 });
 Route::get('/inbox',function(){
     return view('inbox');
