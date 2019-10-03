@@ -45,8 +45,8 @@
         </div>
         <div class="row">
           <div class="col-md-12 mb-10" width="900" height="20">
-            {{Form::label('keywords','Keywords')}}
-            {{Form::text('keywords','',['class'=> 'form-control','placeholder'=>'Enter Keywords'])}}
+            {{Form::label('keywords','Brief Introduction')}}<span class="text-muted">(Optional)</span>
+            {{Form::text('keywords','',['class'=> 'form-control','placeholder'=>'Enter your information in brief'])}}
           </div>
         </div>
         <hr class="mb-4">
