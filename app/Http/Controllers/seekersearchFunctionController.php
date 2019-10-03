@@ -26,6 +26,7 @@ class seekersearchFunctionController extends Controller
         //$data = serialize($resultJobTypeMatch);
 
         $IDList = array_column($resultJobTypeMatch, 'id');
+        $USERIDList = array_column($resultJobTypeMatch, 'userid');
         $CompanyNameList=array_column($resultJobTypeMatch, 'companyname');
         $EmailList=array_column($resultJobTypeMatch, 'email');
         $AddressList=array_column($resultJobTypeMatch, 'address');
@@ -59,13 +60,13 @@ class seekersearchFunctionController extends Controller
               }
               if ($MatchCount>=3){
                 //save data into session
-                $searchresult=collect([$IDList[$i],$CompanyNameList[$i],$EmailList[$i],$AddressList[$i],$SalaryList[$i],$EducationList[$i],$ExperienceList[$i],$CityList[$i]]);
+                $searchresult=collect([$IDList[$i],$USERIDList[$i],$CompanyNameList[$i],$EmailList[$i],$AddressList[$i],$SalaryList[$i],$EducationList[$i],$ExperienceList[$i],$CityList[$i]]);
                 $request->session()->push('searchresult'.$i, $searchresult);
                 $TotalMatch++;
               }
             }
           }
-          $request->session()->push('totalmatch', $TotalMatch);
+          $request->session()->put('totalmatch', $TotalMatch);
           return redirect('/user')->with('success','Information saved successful');
           
 

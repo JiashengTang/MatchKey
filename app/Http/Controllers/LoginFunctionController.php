@@ -43,7 +43,7 @@ class LoginFunctionController extends Controller
         //array_forget($array, 'names.joe');
         if($username=="admin" && $password=="admin")
         {
-            $request->session()->put('userData', $username);
+            $request->session()->push('userData', $username);
             return redirect('/admin')->with('success','Login success!');
         }
         else
@@ -52,6 +52,7 @@ class LoginFunctionController extends Controller
             {
                 $request->session()->put('jorr', $jorrList[0]);
                 $request->session()->put('userData', $username);
+                $request->session()->put('userid', $IDList[0]);
                 //$output=$request->session()->get('userData');
                 return redirect('/user')->with('success','Login success!');
             }
@@ -65,7 +66,7 @@ class LoginFunctionController extends Controller
     }
 
     public function logout(Request $request){
-        $request->session()->forget('userData');
+        $request->session()->flush();
         return redirect('/')->with('success','Logout success!');
     }
 
