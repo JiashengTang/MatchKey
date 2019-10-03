@@ -41,7 +41,7 @@
 		</div>
 		<div class="form-group" style="width: 400px;">
 			{{Form::label('age','Age')}}
-			{{Form::text('age','',['class'=> 'form-control','placeholder'=>'Enter Your Age'])}}
+			{{Form::number('age','',['class'=> 'form-control','placeholder'=>'Enter Your Age','min'=>'0'])}}
 		</div>
 		<div>
 			{{Form::submit('Submit',['class'=>'btn btn-primary'])}}
