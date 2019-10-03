@@ -7,7 +7,8 @@
       <br><br>
 
 @if(Session::get('userData'))
-    @if($a=Session::get('totalmatch'))
+  {{$a=Session::get('totalmatch')}}
+    @if(Session::get('totalmatch'))
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
