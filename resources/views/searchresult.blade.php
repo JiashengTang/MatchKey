@@ -7,6 +7,7 @@
       <br><br>
 
 @if(Session::get('userData'))
+    @if($a=Session::get('totalmatch'))
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
@@ -39,6 +40,11 @@
           <p>If you want to change your personal information</p>
           <p>Please click back button</p>
           <p><a class="btn btn-primary" href="/user" role="button">Back &raquo;</a></p>
+    @else
+        <h4>Please fill in the personal information first !</h4>
+        <h4>More details given to system, more precise result will be given !</h4>
+        <h4>Please click <a href="/user">here</a> to go back to fill in the personal information.</h4>
+    @endif
 
 @else
         <h4>Please Login first !</h4>
