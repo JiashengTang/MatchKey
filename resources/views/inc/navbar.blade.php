@@ -23,16 +23,13 @@
       <li class="nav-item">
         <a class="nav-link" href="/register">Register</a>
       </li>
+    @if(Session::get('jorr')=="j")
       <li class="nav-item">
         <a class="nav-link" href="/searchresult">Result</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+    @endif
+      <li class="nav-item">
+        <a class="nav-link" href="/message">Message</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
