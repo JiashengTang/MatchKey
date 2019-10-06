@@ -22,7 +22,15 @@
       <div class="col-md-6">
         <h2>See the match result</h2>
         <p>After you complete the personal information<br>You can see the result here</p>
-        <p><a class="btn btn-primary" href="/searchresult" role="button">Go to result page &raquo;</a></p>
+        @if(Session::get('searchresultcount'))
+        {!! Form::open(['url'=> 'seekersearch/show'])!!}
+        {{Form::submit('Go to result page &raquo;',['class'=>'btn btn-primary'])}}
+        {!!Form::close()!!}
+        @else
+        {!! Form::open(['url'=> 'seekersearch/fillfirst'])!!}
+        {{Form::submit('Go to result page &raquo;',['class'=>'btn btn-primary'])}}
+        {!!Form::close()!!}
+        @endif
     </div>
     @elseif(Session::get('jorr')=="r")
       <div class="col-md-6">
