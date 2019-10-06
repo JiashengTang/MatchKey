@@ -17,6 +17,8 @@ class CreateUserMessagesTable extends Migration
             $table->bigIncrements('id');
             $table->string('sendid');
             $table->string('toid');
+            $table->string('jobid');
+            $table->string('title');
             $table->string('message');
             $table->timestamps();
         });
