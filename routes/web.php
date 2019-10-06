@@ -71,6 +71,10 @@ Route::get('/sent',function(){
 Route::get('logout', 'LoginFunctionController@logout')
       ->name('logout');
 
+Route::post('seekersearch/fillfirst', 'seekersearchFunctionController@fillfirst');
+
+Route::post('seekersearch/show', 'seekersearchFunctionController@show');
+
 Route::post('/welcome/submit', 'LoginFunctionController@submit');
 
 Route::post('/register/submit', 'RegisterFunctionController@submit');
