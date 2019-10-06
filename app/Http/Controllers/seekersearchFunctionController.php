@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\jobseeker;
 use DB;
 use Illuminate\Support\Str;
+use Session;
 
 class seekersearchFunctionController extends Controller
 {
@@ -17,6 +18,8 @@ class seekersearchFunctionController extends Controller
             'experience'=>'required',
             'salaryrange'=>'required'
         ]);
+        $request->session()->forget('totalmatch');
+        $request->session()->forget('searchresultcount');
         $jobtype=$request->input('jobtype');
         $city=$request->input('city');
         $education=$request->input('education');
@@ -38,14 +41,12 @@ class seekersearchFunctionController extends Controller
         $arrayCount = count($resultJobTypeMatch);
 
         $searchresultcount=$arrayCount-1;//session result count
-        $request->session()->push('searchresultcount', $searchresultcount);
+        $request->session()->put('searchresultcount', $searchresultcount);
 
         $MatchCount = 0;
         $TotalMatch = 0;
-
         for ($i=0; $i<=($arrayCount-1); $i++){
             $MatchCount=0;
-            if (($i+1)==$IDList[$i]){
               if ($salaryrange==$SalaryList[$i]){
                 $MatchCount++;
               }
@@ -58,18 +59,27 @@ class seekersearchFunctionController extends Controller
               if ($city==$CityList[$i]){
                 $MatchCount++;
               }
-              if ($MatchCount>=2){
+              if ($MatchCount>=3){
                 //save data into session
                 $searchresult=collect([$IDList[$i],$USERIDList[$i],$CompanyNameList[$i],$EmailList[$i],$AddressList[$i],$SalaryList[$i],$EducationList[$i],$ExperienceList[$i],$CityList[$i]]);
-                $request->session()->push('searchresult'.$i, $searchresult);
+                if($request->session()->has('searchresult') && $request->session()->get('searchresult') != '') {
+                  $request->session()->forget('searchresult');
+                } else {
+                  $request->session()->push('searchresult'.$i, $searchresult);
+                }
                 $TotalMatch++;
               }
-            }
           }
           $request->session()->put('totalmatch', $TotalMatch);
           return redirect('/user')->with('success','Information saved successful');
-          
-
         //return $IDList;
     }
+    public function fillfirst(Request $request){
+      return redirect('/user')->with('wrong','Please fill in the personal information first !');
+  }
+
+  public function show(Request $request){
+    return redirect('/searchresult');
+}
+
 }
