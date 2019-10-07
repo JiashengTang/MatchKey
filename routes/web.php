@@ -93,6 +93,10 @@ Route::get('/inbox', 'MessageFunctionController@inbox');
 
 Route::get('/sent', 'MessageFunctionController@sent');
 
+Route::get('/searchresult/get/{jobid}', 'searchresultFunctionController@getjobid');
+
+Route::get('/sendmessage/get/{i}', 'sendmessageFunctionController@reply');
+
 Route::get('/recruitmentinformation', 'RecruiterpostFunctionController@recruitmentinformation');
 //Route::post('/search-user/submit', 'SearchFunctionController@submit');
 
