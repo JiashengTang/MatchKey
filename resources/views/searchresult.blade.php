@@ -23,14 +23,16 @@
                   <tbody>
                   @for($i = 0; $i < $a; $i++)
                   <tr>
-                      <td>{{Session::get('searchresult'.$i)[0][0]}}</td>
+                      <td>{{$jobid=Session::get('searchresult'.$i)[0][0]}}</td>
                       <td>{{Session::get('searchresult'.$i)[0][2]}}</td>
                       <td>{{Session::get('searchresult'.$i)[0][3]}}</td>
                       <td>{{Session::get('searchresult'.$i)[0][4]}}</td>
                       <td>{{Session::get('searchresult'.$i)[0][5]}}</td>
-                      {!! Form::open(['url'=> 'searchresult/submit'])!!}
-                      <td>{{Form::submit('Submit',['class'=>'btn btn-primary','onClick' => Session::put('recruiterid',Session::get('searchresult0')[0][1]),Session::put('jobid',Session::get('searchresult0')[0][0])])}}</td>
-                      {!!Form::close()!!}
+                      <td nowrap>
+                          <a href="{{url('/searchresult/get/' . $jobid)}}" class="btn m-btn--pill    btn-outline-primary" title="View">
+                          <i class="la la-trash">Apply</i>
+                          </a>
+                       </td>
                   </tr>
                   @endfor
                   </tbody>

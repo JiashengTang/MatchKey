@@ -16,24 +16,30 @@
               <li class="list-group-item">Job Type applied: {{$U->jobtype}}</li>
               <li class="list-group-item"> {{$U->message}}</li>
             </ul>
+            <a href="{{url('/sendmessage/get/' . $U->id)}}" class="btn m-btn--pill    btn-outline-primary" title="View">
+                          <i class="la la-trash">Reply</i>
+                          </a>
             <br><br>
             @endforeach
         @elseif(Session::get('jorr')=="r")
-        @foreach($inbox as $U)
-            <ul class="list-group">
-              <li class="list-group-item">Title: {{$U->title}}</li>
-              <li class="list-group-item">Applicant Name: {{$U->fullname}}</li>
-              <li class="list-group-item">Apply Company Name: {{$U->companyname}}</li>
-              <li class="list-group-item">Applicant Contract email: {{$U->senderemail}}</li>
-              <li class="list-group-item">Job Type apply: {{$U->jobtype}}</li>
-              <li class="list-group-item"> {{$U->message}}</li>
-            </ul>
-            <br><br>
-            @endforeach
+          @foreach($inbox as $U)
+              <ul class="list-group">
+                <li class="list-group-item">Title: {{$U->title}}</li>
+                <li class="list-group-item">Applicant Name: {{$U->fullname}}</li>
+                <li class="list-group-item">Apply Company Name: {{$U->companyname}}</li>
+                <li class="list-group-item">Applicant Contract email: {{$U->senderemail}}</li>
+                <li class="list-group-item">Job Type apply: {{$U->jobtype}}</li>
+                <li class="list-group-item"> {{$U->message}}</li>
+              </ul>
+              <a href="{{url('/sendmessage/get/' . $U->id)}}" class="btn m-btn--pill    btn-outline-primary" title="View">
+                            <i class="la la-trash">Reply</i>
+                            </a>
+              <br><br>
+              @endforeach
         @endif
         @else
         <br><br>
           <h3> There is no message received</h3>
           <h4>Please click <a href="/message">here</a> to go back.</h4>
-          @endif
+        @endif
 @endsection
