@@ -69,7 +69,7 @@
         </div>
         
         <div class="row">
-            <div class="form-group">
+            <div class="col-md-6 mb-3">
             {{Form::label('description','Description')}}
 			      {{Form::textarea('description','',['class'=> 'form-control','placeholder'=>'Please type in description'])}}
             </div>
