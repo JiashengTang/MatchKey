@@ -67,6 +67,13 @@
 			      {{Form::number('salaryrange','',['class'=> 'form-control','placeholder'=>'/month', 'min'=>'0'])}}
             </div>
         </div>
+        
+        <div class="row">
+            <div class="form-group">
+            {{Form::label('description','Description')}}
+			      {{Form::textarea('description','',['class'=> 'form-control','placeholder'=>'Please type in description'])}}
+            </div>
+        </div>
 
         <hr class="mb-4">
         <div class="custom-control custom-checkbox">
