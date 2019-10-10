@@ -44,6 +44,7 @@ class LoginFunctionController extends Controller
         if($username=="admin" && $password=="admin")
         {
             $request->session()->push('userData', $username);
+            $request->session()->put('userid', $IDList[0]);
             return redirect('/admin')->with('success','Login success!');
         }
         else
