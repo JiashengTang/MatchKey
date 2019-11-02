@@ -26,15 +26,22 @@ class ForgotPasswordFunctionController extends Controller
         $LastNameList = array_column($userinfos, 'lastname');
         $AgeList = array_column($userinfos, 'age');
         $jorrList = array_column($userinfos, 'jorr');
+        $verifiedList= array_column($userinfos, 'verified');
 
-        $randomcode=rand(1000,9999);
-        $data= $randomcode;
-        $request->session()->put('rorf', 'f');
-        $request->session()->put('forgotpassworduername', $username);
-        $request->session()->put('senduserpassword', $PasswordList[0]);
-        $request->session()->put('randomcode', $randomcode);
-        $request->session()->put('forgotpasswordemail', $EmailList[0]);
-        Mail::to($EmailList[0])->send(new Sendmailable($data));
-        return redirect('/enterverificationcode')->with('success','Email send successful');
+        if($verifiedList==0)
+        {
+            $randomcode=rand(1000,9999);
+            $data= $randomcode;
+            $request->session()->put('rorf', 'f');
+            $request->session()->put('forgotpassworduername', $username);
+            $request->session()->put('senduserpassword', $PasswordList[0]);
+            $request->session()->put('randomcode', $randomcode);
+            $request->session()->put('forgotpasswordemail', $EmailList[0]);
+            Mail::to($EmailList[0])->send(new Sendmailable($data));
+            return redirect('/enterverificationcode')->with('success','Email send successful');
+        }
+        else{
+            return redirect('/forgotpw')->with('wrong','Please verify your email address first');
+        }
     }
 }

@@ -26,6 +26,7 @@ class LoginFunctionController extends Controller
         $LastNameList = array_column($userinfos, 'lastname');
         $AgeList = array_column($userinfos, 'age');
         $jorrList = array_column($userinfos, 'jorr');
+        $verifiedList= array_column($userinfos, 'verified');
 
         //$userinfos=array_flatten($userinfos);
         //$data = array_get($userinfos, 'password.');
@@ -41,28 +42,33 @@ class LoginFunctionController extends Controller
         // }
         //$array = ['names' => ['joe' => ['programmer']]];
         //array_forget($array, 'names.joe');
-        if($username=="admin" && $password=="admin")
+        if($verifiedList[0]==1)
         {
-            $request->session()->put('userData', $username);
-            $request->session()->put('userid', $IDList[0]);
-            return redirect('/admin')->with('success','Login success!');
-        }
-        else
-        {
-            if($PasswordList[0]==$password)
+            if($username=="admin" && $password=="admin")
             {
-                $request->session()->put('jorr', $jorrList[0]);
-                $request->session()->put('userData', $username);
-                $request->session()->put('userid', $IDList[0]);
-                //$output=$request->session()->get('userData');
-                return redirect('/user')->with('success','Login success!');
+                $request->session()->push('userData', $username);
+                return redirect('/admin')->with('success','Login success!');
             }
-            else{
-                //$data="1";
-                // return $data;
-                // return view('view')->with('messages',$data);
-                return redirect('/')->with('wrong','Wrong account or password');
+            else
+            {
+                if($PasswordList[0]==$password)
+                {
+                    $request->session()->put('jorr', $jorrList[0]);
+                    $request->session()->put('userData', $username);
+                    $request->session()->put('userid', $IDList[0]);
+                    //$output=$request->session()->get('userData');
+                    return redirect('/user')->with('success','Login success!');
+                }
+                else{
+                    //$data="1";
+                    // return $data;
+                    // return view('view')->with('messages',$data);
+                    return redirect('/')->with('wrong','Wrong account or password');
+                }
             }
+        }
+        else{
+            return redirect('/')->with('wrong','Please verify your email address first');
         }
     }
 

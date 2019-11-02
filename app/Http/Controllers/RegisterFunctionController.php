@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\VerifyUser;
 use App\Userinfos;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
@@ -10,12 +11,30 @@ use DB;
 
 class RegisterFunctionController extends Controller
 {
+    public function verifyUser($token)
+    {
+      $verifyUser = VerifyUser::where('token', $token)->first();
+      if(isset($verifyUser) ){
+        $user = $verifyUser->user;
+        if(!$user->verified) {
+          $verifyUser->user->verified = 1;
+          $verifyUser->user->save();
+          $status = "Your e-mail is verified. You can now login.";
+        } else {
+          $status = "Your e-mail is already verified. You can now login.";
+        }
+      } else {
+        return redirect('/')->with('warning', "Sorry your email cannot be identified.");
+      }
+      return redirect('/')->with('status', $status);
+    }
+
     public function submit(Request $request){
         $this->validate($request,[
             'username'=>'required',
             'password'=>'required',
             'confirmpassword'=>'required',
-            'email'=>'required'
+            'email'=>'email:rfc,dns'
         ]);
         // check whether username exsit
         $username=$request->input('username');
@@ -53,13 +72,17 @@ class RegisterFunctionController extends Controller
         $message->jorr = $request->input('jorr');
         $message->save();
 
-        $data=$message->username;
         $email=$message->email;
         $data = array('name'=>"Our Code World");
         // Path or name to the blade template to be rendered
         $template_path ='register';
         $request->session()->put('rorf', 'r');
         $request->session()->put('registeruername', $request->input('username'));
+        $verifyUser = VerifyUser::create([
+            'user_id' => $message->id,
+            'token' => sha1(time())
+          ]);
+        $data=$verifyUser;
         Mail::to($message->email)->send(new Sendmailable($data));
         // Mail::send($template_path, $data, function(Request $request, b $message) {
         //     // Set the receiver and subject of the mail.
