@@ -4,7 +4,7 @@
 <br><br>
 <h1>{{Session::get('userData')}}'s Sent Message</h1>
 <br><br>
-@if($sent)
+@if($sent!=NULL)
         @if(Session::get('jorr')=="j")
             @foreach($sent as $U)
             <ul class="list-group">
@@ -30,9 +30,9 @@
             <br><br>
             @endforeach
         @endif
-        @else
-        <br><br>
-          <h3> There is no message received</h3>
-          <h4>Please click <a href="/message">here</a> to go back.</h4>
-          @endif
+@else
+<br><br>
+  <h3> There is no message received</h3>
+  <h4>Please click <a href="/message">here</a> to go back.</h4>
+@endif
 @endsection

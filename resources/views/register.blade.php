@@ -8,6 +8,10 @@
 		<br>
 		{!! Form::open(['url'=> 'register/submit'])!!}
 		<div class="form-group" style="width: 400px;">
+			{{Form::label('jorr','Which role would you like to be')}}
+			{{Form::select('jorr', array('j' => 'Job-seeker', 'r' => 'Recruiter'), 'j',['class'=>'custom-select d-block w-100'])}}
+		</div>
+		<div class="form-group" style="width: 400px;">
 			{{Form::label('username','Username')}}
 			{{Form::text('username','',['class'=> 'form-control','placeholder'=>'Enter name'])}}
 		</div>
@@ -24,10 +28,6 @@
 			{{Form::text('email','',['class'=> 'form-control','placeholder'=>'example@example.com'])}}
 		</div>
 		<div class="form-group" style="width: 400px;">
-			{{Form::label('jorr','Job-seeker or Recruiter')}}
-			{{Form::select('jorr', array('j' => 'Job-seeker', 'r' => 'Recruiter'), 'j',['class'=>'custom-select d-block w-100'])}}
-		</div>
-		<div class="form-group" style="width: 400px;">
 			{{Form::label('firstname','Firstname')}}
 			{{Form::text('firstname','',['class'=> 'form-control','placeholder'=>'Enter FirstName'])}}
 		</div>
@@ -36,13 +36,14 @@
 			{{Form::text('lastname','',['class'=> 'form-control','placeholder'=>'Enter Lastname'])}}
 		</div>
 		<div class="form-group" style="width: 400px;">
+			{{Form::label('age','Age')}}<span class="text-muted"> (Min 16)</span>
+			{{Form::number('age','',['class'=> 'form-control','placeholder'=>'Enter Your Age','min'=>'16'])}}
+		</div>
+		<div class="form-group" style="width: 400px;">
 			{{Form::label('address','Address')}}
 			{{Form::text('address','',['class'=> 'form-control','placeholder'=>'Enter Your Address'])}}
 		</div>
-		<div class="form-group" style="width: 400px;">
-			{{Form::label('age','Age')}}
-			{{Form::number('age','',['class'=> 'form-control','placeholder'=>'Enter Your Age','min'=>'0'])}}
-		</div>
+
 		<div>
 			{{Form::submit('Submit',['class'=>'btn btn-primary'])}}
 		</div>

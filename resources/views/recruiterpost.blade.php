@@ -67,13 +67,6 @@
 			      {{Form::number('salaryrange','',['class'=> 'form-control','placeholder'=>'/month', 'min'=>'0'])}}
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-12 mb-3">
-            {{Form::label('description','Description')}}
-			      {{Form::textarea('description','',['class'=> 'form-control','placeholder'=>'Please type in description'])}}
-            </div>
-        </div>
 
         <hr class="mb-4">
         <div class="custom-control custom-checkbox">
@@ -81,7 +74,7 @@
           <label class="custom-control-label" for="same-address">I confirm that company details and check-in details are vaild</label>
         </div>
         <hr class="mb-4">
-        {{Form::submit('Continue to Search',['class'=>'btn btn-primary'])}}
+        {{Form::submit('Post a job',['class'=>'btn btn-primary'])}}
       </form>
       {!!Form::close()!!}
     </div>

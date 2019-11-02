@@ -1,5 +1,13 @@
-<p>Hi {{Session::get('registeruername')}} ! Welcome to MatchKey</p>
-<p>Please confirm that you have register account to our website</p>
-<p herf="Matchkey.com.au">Matchkey.com.au</p>
-
-<p>For further information, Please go to website</p>
+<!DOCTYPE html>
+    <html>
+      <head>
+        <title>Welcome Email</title>
+      </head>
+      <body>
+        <h2>Welcome to the Matchkey {{Session::get('registeruername')}}</h2>
+        <br/>
+        Your registered account on Matchkey, Please click on the below link to verify your email account
+        <br/>
+        <a href="{{url('user/verify', $data->token)}}">Verify Email</a>
+      </body>
+    </html>
