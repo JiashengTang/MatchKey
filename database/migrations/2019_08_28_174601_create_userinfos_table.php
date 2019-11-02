@@ -23,6 +23,7 @@ class CreateUserinfosTable extends Migration
             $table->string('address');
             $table->string('age');
             $table->string('jorr');
+            $table->boolean('verified')->default(false);
             $table->timestamps();
         });
     }
