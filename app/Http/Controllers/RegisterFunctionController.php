@@ -92,7 +92,7 @@ class RegisterFunctionController extends Controller
         // });
 
         //Mail::to($message->email)->send(new SendMailable($data));
-        return redirect('/')->with('success','Registe successful');
+        return redirect('/')->with('success','Registe successful, Please check your email to verify.');
         }
     }
     else
