@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/user/verify/{token}', 'RegisterFunctionController@verifyUser');
 
 Route::get('/register', function () {
     return view('register');
