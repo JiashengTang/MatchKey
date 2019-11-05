@@ -43,21 +43,21 @@
         <div class="row">
             <div class="col-md-6 mb-3">
             {{Form::label('city','City required')}}
-            {{Form::select('city', array('vic' => 'Melbourne', 'regvic' => 'Regional VIC','nsw'=>'Sydney','regnsw'=>'Regional NSW','qld'=>'Brisbane &amp; Gold Coast','regqld'=>'Regional QLD','wa'=>'Perth','regwa'=>'Regional WA','sa'=>'Adelaide','regsa'=>'Regional SA','tas'=>'Hobart','regtas'=>'Regional TAS','nt'=>'Darwin','regnt'=>'Regional NT','act'=>'Canberra &amp; ACT'), 'vic',['class'=>'custom-select d-block w-100'])}}
+            {{Form::select('city', array('Melbourne' => 'Melbourne', 'Regional VIC' => 'Regional VIC','Sydney'=>'Sydney','Regional NSW'=>'Regional NSW','Brisbane &amp; Gold Coast'=>'Brisbane &amp; Gold Coast','Regional QLD'=>'Regional QLD','Perth'=>'Perth','Regional WA'=>'Regional WA','Adelaide'=>'Adelaide','Regional SA'=>'Regional SA','Hobart'=>'Hobart','Regional TAS'=>'Regional TAS','Darwin'=>'Darwin','Regional NT'=>'Regional NT','Canberra &amp; ACT'=>'Canberra &amp; ACT'), 'Melbourne',['class'=>'custom-select d-block w-100'])}}
             </div>
         </div>
         
         <div class="row">
           <div class="col-md-6 mb-3">
           {{Form::label('education','Education')}}
-          {{Form::select('education', array('Collage' => 'Collage', 'Highschool' => 'High school','None'=>'None'), 'Collage',['class'=>'custom-select d-block w-100'])}}
+          {{Form::select('education', array('Postgraduate Degree Level' => 'Postgraduate Degree Level', 'Graduate Diploma and Graduate Certificate Level' => 'Graduate Diploma and Graduate Certificate Level','Bachelor Degree Level'=>'Bachelor Degree Level','Advanced Diploma and Diploma Level'=>'Advanced Diploma and Diploma Level','Certificate Level'=>'Certificate Level','Senior Secondary Education'=>'Senior Secondary Education','Junior Secondary Education'=>'Junior Secondary Education','Other education'=>'Other education','No Education'=>'No Education'), '',['class'=>'custom-select d-block w-100'])}}
           </div>
         </div>
 
         <div class="row">
             <div class="col-md-6 mb-3">
             {{Form::label('experience','Working experience required')}}
-            {{Form::select('experience', array('0' => '0 years', '1' => '1-2 years','2' => '2-5 years','5' =>'5+ years'), '0',['class'=>'custom-select d-block w-100'])}}
+            {{Form::select('experience', array('0 years' => '0 years', '1-2 years' => '1-2 years','2-5 years' => '2-5 years','5+ years' =>'5+ years'), '0 years',['class'=>'custom-select d-block w-100'])}}
             </div>
         </div>
 
