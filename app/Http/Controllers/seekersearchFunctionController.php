@@ -36,6 +36,7 @@ class seekersearchFunctionController extends Controller
         $SalaryList = array_column($resultJobTypeMatch, 'salaryrange');
         $EducationList = array_column($resultJobTypeMatch, 'education');
         $ExperienceList = array_column($resultJobTypeMatch, 'experience');
+        $JobtypeList = array_column($resultJobTypeMatch, 'jobtype');
         $CityList = array_column($resultJobTypeMatch, 'city');
 
         $arrayCount = count($resultJobTypeMatch);
@@ -61,7 +62,7 @@ class seekersearchFunctionController extends Controller
               }
               if ($MatchCount>=3){
                 //save data into session
-                $searchresult=collect([$IDList[$i],$USERIDList[$i],$CompanyNameList[$i],$EmailList[$i],$AddressList[$i],$SalaryList[$i],$EducationList[$i],$ExperienceList[$i],$CityList[$i]]);
+                $searchresult=collect([$IDList[$i],$USERIDList[$i],$CompanyNameList[$i],$EmailList[$i],$AddressList[$i],$SalaryList[$i],$EducationList[$i],$ExperienceList[$i],$CityList[$i],$JobtypeList[$i]]);
                 if($request->session()->has('searchresult') && $request->session()->get('searchresult') != '') {
                   $request->session()->forget('searchresult');
                 } else {
