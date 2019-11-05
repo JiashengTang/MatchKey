@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <title>Match Key</title>
-        <link rel="stylesheet" href="public/css/app.css">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
     @include('inc.navbar')
