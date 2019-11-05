@@ -41,7 +41,7 @@
       <div class="col-md-6">
         <h2>See the Recruitment information</h2>
         <p>After you complete the Recruitment information<br>You can see the history here</p>
-        <button type="submit"  onclick="location.href='{{ url('recruitmentinformation') }}'" class="btn btn-primary">Go to Recruitment information page &raquo;</button>
+        <p><a class="btn btn-primary" href="/created" role="button">Go to Recruitment information page &raquo;</a></p>
     </div>
     @endif
     </div>

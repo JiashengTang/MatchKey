@@ -16,6 +16,7 @@
                       <th>Company Name</th>
                       <th>Contact Email</th>
                       <th>Company Address</th>
+                      <th>Job Type</th>
                       <th>Salary <span class="text-muted"> /month</span></th>
                       <th>Send message</th>
                     </tr>
@@ -27,6 +28,7 @@
                       <td>{{Session::get('searchresult'.$i)[0][2]}}</td>
                       <td>{{Session::get('searchresult'.$i)[0][3]}}</td>
                       <td>{{Session::get('searchresult'.$i)[0][4]}}</td>
+                      <td>{{Session::get('searchresult'.$i)[0][9]}}</td>
                       <td>{{Session::get('searchresult'.$i)[0][5]}}</td>
                       <td nowrap>
                           <a href="{{url('/searchresult/get/' . $jobid)}}" class="btn m-btn--pill    btn-outline-primary" title="View">
