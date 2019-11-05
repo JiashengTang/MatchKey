@@ -19,12 +19,15 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
-    @endif
       <li class="nav-item">
         <a class="nav-link" href="/register">Register</a>
       </li>
-    @if(Session::get('jorr')=="r")
+    @endif
 
+    @if(Session::get('jorr')=="r")
+    <li class="nav-item">
+        <a class="nav-link" href="/created">Created</a>
+      </li>
     @else
     <li class="nav-item">
         <a class="nav-link" href="/searchresult">Result</a>
