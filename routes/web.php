@@ -75,6 +75,10 @@ Route::get('/editjob',function(){
     return view('editjob');
 });
 
+Route::get('/NavbarSearch',function(){
+    return view('NavbarSearch');
+});
+
 Route::get('logout', 'LoginFunctionController@logout')
       ->name('logout');
 
