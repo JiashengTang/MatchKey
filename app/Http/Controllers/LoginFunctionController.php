@@ -42,6 +42,7 @@ class LoginFunctionController extends Controller
         // }
         //$array = ['names' => ['joe' => ['programmer']]];
         //array_forget($array, 'names.joe');
+        if($userinfos){
         if($verifiedList[0]==1)
         {
             if($username=="admin" && $password=="admin")
@@ -70,6 +71,10 @@ class LoginFunctionController extends Controller
         else{
             return redirect('/')->with('wrong','Please verify your email address first');
         }
+    }
+    else{
+        return redirect('/')->with('wrong','Please Create an account first');
+    }
     }
 
     public function logout(Request $request){
