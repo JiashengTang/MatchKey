@@ -28,6 +28,10 @@ Route::get('/user',function(){
     return view('user');
 });
 
+Route::get('/created',function(){
+    return view('createdjob');
+});
+
 Route::get('/add-user',function(){
     return view('adminview/add-user');
 });
@@ -67,7 +71,9 @@ Route::get('/inbox',function(){
 Route::get('/sent',function(){
     return view('sent');
 });
-
+Route::get('/editjob',function(){
+    return view('editjob');
+});
 
 Route::get('logout', 'LoginFunctionController@logout')
       ->name('logout');
@@ -90,6 +96,8 @@ Route::get('/view', 'LoginFunctionController@submit');
 
 Route::get('/show-all-user', 'AdminFunctionController@getuserinfo');
 
+Route::get('/created', 'ShowcreatedjobFunctionController@getalljobinfo');
+
 Route::get('/inbox', 'MessageFunctionController@inbox');
 
 Route::get('/sent', 'MessageFunctionController@sent');
@@ -97,6 +105,8 @@ Route::get('/sent', 'MessageFunctionController@sent');
 Route::get('/searchresult/get/{jobid}', 'searchresultFunctionController@getjobid');
 
 Route::get('/sendmessage/get/{i}', 'sendmessageFunctionController@reply');
+
+Route::get('/editjobs/get/{jobid}', 'ShowcreatedjobFunctionController@geteditjobinfo');
 
 Route::get('/recruitmentinformation', 'RecruiterpostFunctionController@recruitmentinformation');
 //Route::post('/search-user/submit', 'SearchFunctionController@submit');
@@ -106,6 +116,8 @@ Route::post('/recruiterpost/submit', 'RecruiterpostFunctionController@submit');
 Route::post('/seekersearch/submit', 'seekersearchFunctionController@submit');
 
 Route::post('/searchresult/submit', 'searchresultFunctionController@submit');
+
+Route::post('/editjobs/submit', 'ShowcreatedjobFunctionController@submit');
 
 Route::post('/sendmessage/submit', 'sendmessageFunctionController@submit');
 //Route::redirect('/welcome/submit', '/view');
