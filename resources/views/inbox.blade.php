@@ -10,7 +10,7 @@
             <ul class="list-group">
               <li class="list-group-item">Title: {{$U->title}}</li>
               <li class="list-group-item">From: {{$U->fullname}}</li>
-              <li class="list-group-item">Company Name: {{$U->companyname}}</li>
+              <li class="list-group-item">Job Description: {{$U->companyname}}</li>
               <li class="list-group-item">Company Address: {{$U->companyaddress}}</li>
               <li class="list-group-item">Contract email: {{$U->companyemail}}</li>
               <li class="list-group-item">Job Type applied: {{$U->jobtype}}</li>
@@ -26,7 +26,7 @@
               <ul class="list-group">
                 <li class="list-group-item">Title: {{$U->title}}</li>
                 <li class="list-group-item">Applicant Name: {{$U->fullname}}</li>
-                <li class="list-group-item">Apply Company Name: {{$U->companyname}}</li>
+                <li class="list-group-item">Job Description: {{$U->companyname}}</li>
                 <li class="list-group-item">Applicant Contract email: {{$U->senderemail}}</li>
                 <li class="list-group-item">Job Type apply: {{$U->jobtype}}</li>
                 <li class="list-group-item"> {{$U->message}}</li>

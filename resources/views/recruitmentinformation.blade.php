@@ -11,7 +11,7 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Company Name</th>
+              <th>Job Description</th>
               <th>Address</th>
               <th>email</th>
               <th>job Type</th>

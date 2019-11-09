@@ -13,7 +13,7 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Company Name</th>
+                      <th>Job Description</th>
                       <th>Contact Email</th>
                       <th>Company Address</th>
                       <th>Job Type</th>

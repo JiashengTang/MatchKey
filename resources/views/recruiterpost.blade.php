@@ -10,11 +10,11 @@
   </div>
   {!! Form::open(['url'=> 'recruiterpost/submit'])!!}
     <div class="col-md-8 order-md-1">
-      <h4 class="mb-3">Company Details</h4>
+      <h4 class="mb-3">Job Details</h4>
       <form class="needs-validation" novalidate>
         <div class="row">
             <div class="col-md-12 mb-3">
-            {{Form::label('companyname','Company Name')}}
+            {{Form::label('companyname','Job decription')}}
 			      {{Form::text('companyname','',['class'=> 'form-control','placeholder'=>''])}}  
             </div>
         </div>

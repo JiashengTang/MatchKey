@@ -11,7 +11,7 @@
     @if($jobseekers)
         @foreach($jobseekers as $U)
             <ul class="list-group">
-              <li class="list-group-item">CompanyName: {{$U->companyname}}</li>
+              <li class="list-group-item">Job Description: {{$U->companyname}}</li>
               <li class="list-group-item">Company Address: {{$U->address}}</li>
               <li class="list-group-item">Contract email: {{$U->email}}</li>
               <li class="list-group-item">Job Type applied: {{$U->jobtype}}</li>

@@ -16,7 +16,7 @@
       <form class="needs-validation" novalidate>
         <div class="row">
             <div class="col-md-12 mb-3">
-            {{Form::label('companyname','Company Name')}}
+            {{Form::label('companyname','Job Description')}}
 			{{Form::text('companyname',$U->companyname,['class'=> 'form-control','placeholder'=>''])}}  
             </div>
         </div>

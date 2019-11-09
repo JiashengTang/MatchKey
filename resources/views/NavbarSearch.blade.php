@@ -10,7 +10,7 @@
 <br>
 @if(Session::get('userData'))
 
-<h4>No searching Result</h4>
+<h4>No search Result</h4>
 <br><br><br>
 @else
         <h4>Please Login first !</h4>
